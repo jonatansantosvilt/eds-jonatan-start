@@ -1,8 +1,8 @@
 {
-  "mappings": [
-    "/content/aem-boilerplate/:/"
-  ],
-  "includes": [
-    "/content/aem-boilerplate/"
-  ]
+    "mappings": [
+        "/content/eds-jonatan-start/:/",
+        "/content/eds-jonatan-start/configuration:/.helix/config.json",
+        "/content/eds-jonatan-start/metadata:/metadata.json"
+    ],
+    "includes": ["/content/eds-jonatan-start/"]
 }
