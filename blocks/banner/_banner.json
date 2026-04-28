@@ -26,6 +26,14 @@
           "label": "Text",
           "valueType": "string",
           "multi": true
+        },
+        {
+          "component": "richtext",
+          "name": "text",
+          "value": "",
+          "label": "Text",
+          "valueType": "string",
+          "multi": true
         }
       ]
     }
