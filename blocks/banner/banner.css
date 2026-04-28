@@ -49,7 +49,6 @@
 
 #one-codebase-every-platform {
     background: linear-gradient(90deg, #00e5c3 0%, #7c3aed 100%);
-    background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
