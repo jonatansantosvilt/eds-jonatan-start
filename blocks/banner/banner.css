@@ -1,4 +1,4 @@
-.block.banner{
+.banner {
     position: relative;
     width: 1600px;
     max-width: 100vw;
@@ -6,29 +6,34 @@
     transform: translateX(-50%);
     height: 500px;
     overflow: hidden;
- 
-    picture {
-        position: absolute;
-        z-index: -1;
-        inset: 0;
-        box-sizing: border-box;
- 
-        img {
-            object-fit: cover;
-            object-position: center;
-            width: 100%;
-            height: 100%;
-        }
-    }
- 
-    & > div:last-child {
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        background: var(--background-color);
-        padding: 1.5rem 1.5rem 1rem;
-        width: 80vw;
-        max-width: 1200px;
-    }
+    background-color: var(--banner-bg-base);
+    background-image:
+        linear-gradient(var(--banner-grid-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--banner-grid-color) 1px, transparent 1px),
+        radial-gradient(
+            ellipse 60% 50% at 15% 0%,
+            #00e5c328 0%,
+            transparent 70%
+        ),
+        radial-gradient(
+            ellipse 55% 45% at 85% 5%,
+            #7c3aed28 0%,
+            transparent 65%
+        ),
+        radial-gradient(
+            ellipse 80% 60% at 50% 50%,
+            #0d1525 0%,
+            var(--banner-bg-base) 100%
+        );
+    background-size:
+        var(--banner-grid-size) var(--banner-grid-size),
+        var(--banner-grid-size) var(--banner-grid-size),
+        100% 100%,
+        100% 100%,
+        100% 100%;
+}
+
+.banner h1 {
+    padding: 1.5rem 1.5rem 1rem;
+    color: #fff;
 }

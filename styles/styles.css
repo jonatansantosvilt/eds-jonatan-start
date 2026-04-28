@@ -38,6 +38,13 @@
 
   /* nav height */
   --nav-height: 64px;
+
+  /* banner colors */
+  --banner-bg-base:       #090e1a;          
+  --banner-glow-teal:     #00e5c340;        
+  --banner-glow-purple:   #7c3aed30;        
+  --banner-grid-color:    rgb(255 255 255 / 4%); 
+  --banner-grid-size:     48px;             
 }
 
 /* fallback fonts */
