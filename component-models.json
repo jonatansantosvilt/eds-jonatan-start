@@ -145,16 +145,26 @@
     "id": "banner",
     "fields": [
       {
+        "component": "select",
+        "name": "variation",
+        "label": "Banner Style",
+        "valueType": "string",
+        "options": [
+          { "name": "Default", "value": "" },
+          { "name": "Gradient", "value": "gradient" },
+          { "name": "Dark", "value": "dark" }
+        ]
+      },
+      {
         "component": "richtext",
-        "name": "textContent_text",
-        "label": "Text",
+        "name": "headline",
+        "label": "Headline (White)",
         "valueType": "string"
       },
       {
         "component": "richtext",
-        "name": "text",
-        "value": "",
-        "label": "Text",
+        "name": "subheadline",
+        "label": "Subheadline (Gradient)",
         "valueType": "string"
       }
     ]
