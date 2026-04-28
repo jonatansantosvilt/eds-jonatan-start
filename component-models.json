@@ -155,15 +155,13 @@
         "component": "text",
         "valueType": "string",
         "name": "imageAlt",
-        "label": "Image alt text",
-        "required": true
+        "label": "Image alt text"
       },
       {
         "component": "richtext",
         "name": "textContent_text",
         "label": "Text",
-        "valueType": "string",
-        "required": true
+        "valueType": "string"
       },
       {
         "component": "aem-content",
