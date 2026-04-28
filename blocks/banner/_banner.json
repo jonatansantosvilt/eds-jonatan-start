@@ -24,15 +24,11 @@
           "component": "richtext",
           "name": "textContent_text",
           "label": "Text",
-          "valueType": "string"
+          "valueType": "string",
+          "multi": true
         }
       ]
     }
   ],
-  "filters": [
-    {
-      "id": "banner",
-      "components": ["text", "title", "button", "image", "richtext"]
-    }
-  ]
+  "filters": []
 }

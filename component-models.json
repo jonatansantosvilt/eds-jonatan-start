@@ -148,7 +148,8 @@
         "component": "richtext",
         "name": "textContent_text",
         "label": "Text",
-        "valueType": "string"
+        "valueType": "string",
+        "multi": true
       }
     ]
   },

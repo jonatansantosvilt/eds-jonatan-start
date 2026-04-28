@@ -20,16 +20,6 @@
     ]
   },
   {
-    "id": "banner",
-    "components": [
-      "text",
-      "title",
-      "button",
-      "image",
-      "richtext"
-    ]
-  },
-  {
     "id": "cards",
     "components": [
       "card"
