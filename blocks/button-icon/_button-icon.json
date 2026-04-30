@@ -44,6 +44,10 @@
               "value": ""
             },
             {
+              "name": "Gradient",
+              "value": "gradient"
+            },
+            {
               "name": "Primary",
               "value": "primary"
             },
