@@ -1,14 +1,15 @@
 {
   "definitions": [
     {
-      "title": "Button Icon",
-      "id": "button-icon",
+      "title": "Button",
+      "id": "button",
       "plugins": {
         "xwalk": {
           "page": {
             "resourceType": "core/franklin/components/button/v1/button",
             "template": {
-              "model": "button-icon"
+              "model": "button",
+              "linkType": "primary"
             }
           }
         }
@@ -17,36 +18,24 @@
   ],
   "models": [
     {
-      "id": "button-icon",
+      "id": "button",
       "fields": [
+        {
+          "component": "text",
+          "name": "linkText",
+          "label": "Text",
+          "value": "Click Here"
+        },
         {
           "component": "aem-content",
           "name": "link",
           "label": "Link"
         },
         {
-          "component": "text",
-          "name": "linkText",
-          "label": "Text"
-        },
-        {
-          "component": "text",
-          "name": "linkTitle",
-          "label": "Title"
-        },
-        {
           "component": "select",
           "name": "linkType",
-          "label": "Type",
+          "label": "Style Variant",
           "options": [
-            {
-              "name": "Default",
-              "value": ""
-            },
-            {
-              "name": "Gradient",
-              "value": "gradient"
-            },
             {
               "name": "Primary",
               "value": "primary"
@@ -54,40 +43,17 @@
             {
               "name": "Secondary",
               "value": "secondary"
+            },
+            {
+              "name": "Gradient",
+              "value": "gradient"
             }
           ]
         },
         {
           "component": "select",
-          "name": "iconLeft",
-          "label": "Icon Left",
-          "options": [
-            {
-              "name": "None",
-              "value": ""
-            },
-            {
-              "name": "Arrow Right",
-              "value": "arrow-right"
-            },
-            {
-              "name": "Book Open",
-              "value": "book-open"
-            },
-            {
-              "name": "Code Bracket",
-              "value": "code-bracket"
-            },
-            {
-              "name": "Search",
-              "value": "search"
-            }
-          ]
-        },
-        {
-          "component": "select",
-          "name": "iconRight",
-          "label": "Icon Right",
+          "name": "icon",
+          "label": "Icon",
           "options": [
             {
               "name": "None",

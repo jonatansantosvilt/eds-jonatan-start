@@ -1,0 +1,44 @@
+.button-container {
+    display: flex;
+    gap: 10px;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    gap: 8px;
+}
+
+.button.primary {
+    background-color: var(--link-color);
+    color: white;
+}
+
+.button.secondary {
+    background-color: transparent;
+    border: 2px solid var(--link-color);
+    color: var(--link-color);
+}
+
+.button.gradient {
+    background: linear-gradient(45deg, #f06, #4a90e2);
+    color: white;
+    border: none;
+}
+
+.button .icon img {
+    display: block;
+    width: 20px;
+    height: 20px;
+    filter: invert(1);
+}
+
+.button.secondary .icon img {
+    filter: none;
+}
