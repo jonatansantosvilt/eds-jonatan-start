@@ -43,42 +43,10 @@
             {
               "name": "Secondary",
               "value": "secondary"
-            },
-            {
-              "name": "Gradient",
-              "value": "gradient"
-            }
-          ]
-        },
-        {
-          "component": "select",
-          "name": "icon",
-          "label": "Icon",
-          "options": [
-            {
-              "name": "None",
-              "value": ""
-            },
-            {
-              "name": "Arrow Right",
-              "value": "arrow-right"
-            },
-            {
-              "name": "Book Open",
-              "value": "book-open"
-            },
-            {
-              "name": "Code Bracket",
-              "value": "code-bracket"
-            },
-            {
-              "name": "Search",
-              "value": "search"
             }
           ]
         }
       ]
     }
-  ],
-  "filters": []
+  ]
 }
