@@ -22,15 +22,14 @@
       "fields": [
         {
           "component": "richtext",
-          "name": "textContent_text",
-          "label": "Text",
+          "name": "text_headline",
+          "label": "Headline",
           "valueType": "string"
         },
         {
           "component": "richtext",
-          "name": "text",
-          "value": "",
-          "label": "Text",
+          "name": "text_subheadline",
+          "label": "Subheadline",
           "valueType": "string"
         }
       ]

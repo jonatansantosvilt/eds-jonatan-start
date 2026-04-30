@@ -55,6 +55,20 @@
               }
             }
           }
+        },
+        {
+          "title": "Button Icon",
+          "id": "button-icon",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/button/v1/button",
+                "template": {
+                  "model": "button-icon"
+                }
+              }
+            }
+          }
         }
       ]
     },
@@ -92,6 +106,20 @@
                 "template": {
                   "name": "Banner",
                   "model": "banner"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Button Icon",
+          "id": "button-icon",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/button/v1/button",
+                "template": {
+                  "model": "button-icon"
                 }
               }
             }

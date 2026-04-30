@@ -1,14 +1,14 @@
 .banner {
+    margin: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
+    text-align: center;
     padding: 3rem 2rem;
     position: relative;
-    width: 100vw;
-    left: 50%;
-    transform: translateX(-50%);
-    min-height: 500px;
+    max-width: 100vw;
+    min-height: 350px;
     height: auto;
     overflow: hidden;
     background-color: var(--banner-bg-base);
@@ -16,14 +16,14 @@
         linear-gradient(var(--banner-grid-color) 1px, transparent 1px),
         linear-gradient(90deg, var(--banner-grid-color) 1px, transparent 1px),
         radial-gradient(
-            ellipse 60% 50% at 15% 0%,
+            ellipse 90% 80% at 15% 0%,
             #00e5c328 0%,
-            transparent 70%
+            transparent 90%
         ),
         radial-gradient(
-            ellipse 55% 45% at 85% 5%,
+            ellipse 85% 75% at 85% 5%,
             #7c3aed28 0%,
-            transparent 65%
+            transparent 90%
         ),
         radial-gradient(
             ellipse 80% 60% at 50% 50%,
@@ -39,7 +39,7 @@
 }
 
 .banner h1 {
-    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-size: clamp(2.5rem, 8vw, 8rem);
     font-weight: 800;
     line-height: 1.1;
     margin: 0;
@@ -47,8 +47,31 @@
     color: #fff;
 }
 
-#one-codebase-every-platform {
-    background: linear-gradient(90deg, #00e5c3 0%, #7c3aed 100%);
+.banner .banner-subheadline {
+    background: linear-gradient(170deg, #32f4e6 0%, #a967f8 80%);
     -webkit-text-fill-color: transparent;
     background-clip: text;
+}
+
+.banner-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+}
+
+.banner-container p {
+    font-size: clamp(1rem, 1.7rem, 8rem);
+    max-width: 750px;
+}
+
+.banner-container p strong {
+    color: white;
+    font-weight: normal;
+}
+
+.banner-container .button-container a {
+    border-radius: 10px;
 }

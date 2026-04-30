@@ -1,20 +1,6 @@
 {
   "definitions": [
     {
-      "title": "Button",
-      "id": "button",
-      "plugins": {
-        "xwalk": {
-          "page": {
-            "resourceType": "core/franklin/components/button/v1/button",
-            "template": {
-              "model": "button"
-            }
-          }
-        }
-      }
-    },
-    {
       "title": "Button Icon",
       "id": "button-icon",
       "plugins": {
@@ -31,7 +17,7 @@
   ],
   "models": [
     {
-      "id": "button",
+      "id": "button-icon",
       "fields": [
         {
           "component": "aem-content",
@@ -53,21 +39,27 @@
           "name": "linkType",
           "label": "Type",
           "options": [
-            {
-              "name": "default",
-              "value": ""
-            },
-            {
-              "name": "primary",
-              "value": "primary"
-            },
-            {
-              "name": "secondary",
-              "value": "secondary"
-            }
+            { "name": "default", "value": "" },
+            { "name": "primary", "value": "primary" },
+            { "name": "secondary", "value": "secondary" }
+          ]
+        },
+        {
+          "component": "aem-content",
+          "name": "icon",
+          "label": "Icon"
+        },
+        {
+          "component": "select",
+          "name": "iconPosition",
+          "label": "Icon Position",
+          "options": [
+            { "name": "Left", "value": "left" },
+            { "name": "Right", "value": "right" }
           ]
         }
       ]
     }
-  ]
+  ],
+  "filters": []
 }
