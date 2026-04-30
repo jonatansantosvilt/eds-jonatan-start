@@ -39,22 +39,73 @@
           "name": "linkType",
           "label": "Type",
           "options": [
-            { "name": "Default", "value": "" },
-            { "name": "Primary", "value": "primary" },
-            { "name": "Secondary", "value": "secondary" }
+            {
+              "name": "Default",
+              "value": ""
+            },
+            {
+              "name": "Primary",
+              "value": "primary"
+            },
+            {
+              "name": "Secondary",
+              "value": "secondary"
+            }
           ]
         },
         {
           "component": "select",
           "name": "iconLeft",
           "label": "Icon Left",
-          "options": []
+          "options": [
+            {
+              "name": "None",
+              "value": ""
+            },
+            {
+              "name": "Arrow Right",
+              "value": "arrow-right"
+            },
+            {
+              "name": "Book Open",
+              "value": "book-open"
+            },
+            {
+              "name": "Code Bracket",
+              "value": "code-bracket"
+            },
+            {
+              "name": "Search",
+              "value": "search"
+            }
+          ]
         },
         {
           "component": "select",
           "name": "iconRight",
           "label": "Icon Right",
-          "options": []
+          "options": [
+            {
+              "name": "None",
+              "value": ""
+            },
+            {
+              "name": "Arrow Right",
+              "value": "arrow-right"
+            },
+            {
+              "name": "Book Open",
+              "value": "book-open"
+            },
+            {
+              "name": "Code Bracket",
+              "value": "code-bracket"
+            },
+            {
+              "name": "Search",
+              "value": "search"
+            }
+          ]
         }
       ]
     }
