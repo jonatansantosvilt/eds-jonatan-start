@@ -8,20 +8,20 @@ export default function decorate(block) {
     config[key] = value;
   });
 
-  const text = config.text?.textContent || '';
+  const text = config.linktext?.textContent.trim() || '';
   const link = config.link?.querySelector('a')?.href || '#';
-  const type = config.type?.textContent.trim() || 'primary';
+  const type = config.linktype?.textContent.trim() || 'primary';
   const iconName = config.icon?.textContent.trim();
 
   const button = document.createElement('a');
   button.href = link;
-  button.classList.add(`button ${type}`);
+  button.classList.add('button', type);
 
   button.textContent = text;
 
   if (iconName) {
     const iconSpan = document.createElement('span');
-    iconSpan.classList.add(`icon icon-${iconName}`);
+    iconSpan.classList.add('icon', `icon-${iconName}`);
     button.append(iconSpan);
   }
 
