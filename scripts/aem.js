@@ -13,7 +13,9 @@
 /* eslint-env browser */
 function sampleRUM(checkpoint, data) {
   // eslint-disable-next-line max-len
-  const timeShift = () => (window.performance ? window.performance.now() : Date.now() - window.hlx.rum.firstReadTime);
+  const timeShift = () => (window.performance
+    ? window.performance.now()
+    : Date.now() - window.hlx.rum.firstReadTime);
   try {
     window.hlx = window.hlx || {};
     if (!window.hlx.rum || !window.hlx.rum.collector) {
@@ -39,7 +41,9 @@ function sampleRUM(checkpoint, data) {
         weight,
         id,
         isSelected,
-        firstReadTime: window.performance ? window.performance.timeOrigin : Date.now(),
+        firstReadTime: window.performance
+          ? window.performance.timeOrigin
+          : Date.now(),
         sampleRUM,
         queue: [],
         collector: (...args) => window.hlx.rum.queue.push(args),
@@ -81,7 +85,10 @@ function sampleRUM(checkpoint, data) {
         });
 
         window.addEventListener('securitypolicyviolation', (e) => {
-          if (e.blockedURI.includes('helix-rum-enhancer') && e.disposition === 'enforce') {
+          if (
+            e.blockedURI.includes('helix-rum-enhancer')
+            && e.disposition === 'enforce'
+          ) {
             const errData = {
               source: 'csp',
               target: e.blockedURI,
@@ -90,7 +97,8 @@ function sampleRUM(checkpoint, data) {
           }
         });
 
-        sampleRUM.baseURL = sampleRUM.baseURL || new URL(window.RUM_BASE || '/', new URL('https://ot.aem.live'));
+        sampleRUM.baseURL = sampleRUM.baseURL
+          || new URL(window.RUM_BASE || '/', new URL('https://ot.aem.live'));
         sampleRUM.collectBaseURL = sampleRUM.collectBaseURL || sampleRUM.baseURL;
         sampleRUM.sendPing = (ck, time, pingData = {}) => {
           // eslint-disable-next-line max-len, object-curly-newline
@@ -141,7 +149,9 @@ function sampleRUM(checkpoint, data) {
     if (window.hlx.rum && window.hlx.rum.isSelected && checkpoint) {
       window.hlx.rum.collector(checkpoint, data, timeShift());
     }
-    document.dispatchEvent(new CustomEvent('rum', { detail: { checkpoint, data } }));
+    document.dispatchEvent(
+      new CustomEvent('rum', { detail: { checkpoint, data } }),
+    );
   } catch (error) {
     // something went awry
   }
@@ -162,7 +172,9 @@ function setup() {
     try {
       const scriptURL = new URL(scriptEl.src, window.location);
       if (scriptURL.host === window.location.host) {
-        [window.hlx.codeBasePath] = scriptURL.pathname.split('/scripts/scripts.js');
+        [window.hlx.codeBasePath] = scriptURL.pathname.split(
+          '/scripts/scripts.js',
+        );
       } else {
         [window.hlx.codeBasePath] = scriptURL.href.split('/scripts/scripts.js');
       }
@@ -321,7 +333,10 @@ function createOptimizedPicture(
   src,
   alt = '',
   eager = false,
-  breakpoints = [{ media: '(min-width: 600px)', width: '2000' }, { width: '750' }],
+  breakpoints = [
+    { media: '(min-width: 600px)', width: '2000' },
+    { width: '750' },
+  ],
 ) {
   const url = new URL(src, window.location.href);
   const picture = document.createElement('picture');
@@ -333,7 +348,10 @@ function createOptimizedPicture(
     const source = document.createElement('source');
     if (br.media) source.setAttribute('media', br.media);
     source.setAttribute('type', 'image/webp');
-    source.setAttribute('srcset', `${pathname}?width=${br.width}&format=webply&optimize=medium`);
+    source.setAttribute(
+      'srcset',
+      `${pathname}?width=${br.width}&format=webply&optimize=medium`,
+    );
     picture.appendChild(source);
   });
 
@@ -342,14 +360,20 @@ function createOptimizedPicture(
     if (i < breakpoints.length - 1) {
       const source = document.createElement('source');
       if (br.media) source.setAttribute('media', br.media);
-      source.setAttribute('srcset', `${pathname}?width=${br.width}&format=${ext}&optimize=medium`);
+      source.setAttribute(
+        'srcset',
+        `${pathname}?width=${br.width}&format=${ext}&optimize=medium`,
+      );
       picture.appendChild(source);
     } else {
       const img = document.createElement('img');
       img.setAttribute('loading', eager ? 'eager' : 'lazy');
       img.setAttribute('alt', alt);
       picture.appendChild(img);
-      img.setAttribute('src', `${pathname}?width=${br.width}&format=${ext}&optimize=medium`);
+      img.setAttribute(
+        'src',
+        `${pathname}?width=${br.width}&format=${ext}&optimize=medium`,
+      );
     }
   });
 
@@ -398,9 +422,11 @@ function wrapTextNodes(block) {
     [...el.attributes]
       // move the instrumentation from the cell to the new paragraph, also keep the class
       // in case the content is a buttton and the cell the button-container
-      .filter(({ nodeName }) => nodeName === 'class'
-        || nodeName.startsWith('data-aue')
-        || nodeName.startsWith('data-richtext'))
+      .filter(
+        ({ nodeName }) => nodeName === 'class'
+          || nodeName.startsWith('data-aue')
+          || nodeName.startsWith('data-richtext'),
+      )
       .forEach(({ nodeName, nodeValue }) => {
         wrapper.setAttribute(nodeName, nodeValue);
         el.removeAttribute(nodeName);
@@ -411,7 +437,9 @@ function wrapTextNodes(block) {
   block.querySelectorAll(':scope > div > div').forEach((blockColumn) => {
     if (blockColumn.hasChildNodes()) {
       const hasWrapper = !!blockColumn.firstElementChild
-        && validWrappers.some((tagName) => blockColumn.firstElementChild.tagName === tagName);
+        && validWrappers.some(
+          (tagName) => blockColumn.firstElementChild.tagName === tagName,
+        );
       if (!hasWrapper) {
         wrap(blockColumn);
       } else if (
@@ -435,7 +463,10 @@ function decorateButtons(element) {
       const up = a.parentElement;
       const twoup = a.parentElement.parentElement;
       if (!a.querySelector('img')) {
-        if (up.childNodes.length === 1 && (up.tagName === 'P' || up.tagName === 'DIV')) {
+        if (
+          up.childNodes.length === 1
+          && (up.tagName === 'P' || up.tagName === 'DIV')
+        ) {
           a.className = 'button'; // default
           up.classList.add('button-container');
         }
@@ -499,41 +530,43 @@ function decorateIcons(element, prefix = '') {
  * @param {Element} main The container element
  */
 function decorateSections(main) {
-  main.querySelectorAll(':scope > div:not([data-section-status])').forEach((section) => {
-    const wrappers = [];
-    let defaultContent = false;
-    [...section.children].forEach((e) => {
-      if ((e.tagName === 'DIV' && e.className) || !defaultContent) {
-        const wrapper = document.createElement('div');
-        wrappers.push(wrapper);
-        defaultContent = e.tagName !== 'DIV' || !e.className;
-        if (defaultContent) wrapper.classList.add('default-content-wrapper');
-      }
-      wrappers[wrappers.length - 1].append(e);
-    });
-    wrappers.forEach((wrapper) => section.append(wrapper));
-    section.classList.add('section');
-    section.dataset.sectionStatus = 'initialized';
-    section.style.display = 'none';
-
-    // Process section metadata
-    const sectionMeta = section.querySelector('div.section-metadata');
-    if (sectionMeta) {
-      const meta = readBlockConfig(sectionMeta);
-      Object.keys(meta).forEach((key) => {
-        if (key === 'style') {
-          const styles = meta.style
-            .split(',')
-            .filter((style) => style)
-            .map((style) => toClassName(style.trim()));
-          styles.forEach((style) => section.classList.add(style));
-        } else {
-          section.dataset[toCamelCase(key)] = meta[key];
+  main
+    .querySelectorAll(':scope > div:not([data-section-status])')
+    .forEach((section) => {
+      const wrappers = [];
+      let defaultContent = false;
+      [...section.children].forEach((e) => {
+        if ((e.tagName === 'DIV' && e.className) || !defaultContent) {
+          const wrapper = document.createElement('div');
+          wrappers.push(wrapper);
+          defaultContent = e.tagName !== 'DIV' || !e.className;
+          if (defaultContent) wrapper.classList.add('default-content-wrapper');
         }
+        wrappers[wrappers.length - 1].append(e);
       });
-      sectionMeta.parentNode.remove();
-    }
-  });
+      wrappers.forEach((wrapper) => section.append(wrapper));
+      section.classList.add('section');
+      section.dataset.sectionStatus = 'initialized';
+      section.style.display = 'none';
+
+      // Process section metadata
+      const sectionMeta = section.querySelector('div.section-metadata');
+      if (sectionMeta) {
+        const meta = readBlockConfig(sectionMeta);
+        Object.keys(meta).forEach((key) => {
+          if (key === 'style') {
+            const styles = meta.style
+              .split(',')
+              .filter((style) => style)
+              .map((style) => toClassName(style.trim()));
+            styles.forEach((style) => section.classList.add(style));
+          } else {
+            section.dataset[toCamelCase(key)] = meta[key];
+          }
+        });
+        sectionMeta.parentNode.remove();
+      }
+    });
 }
 
 /**
@@ -577,7 +610,9 @@ async function loadBlock(block) {
     block.dataset.blockStatus = 'loading';
     const { blockName } = block.dataset;
     try {
-      const cssLoaded = loadCSS(`${window.hlx.codeBasePath}/blocks/${blockName}/${blockName}.css`);
+      const cssLoaded = loadCSS(
+        `${window.hlx.codeBasePath}/blocks/${blockName}/${blockName}.css`,
+      );
       const decorationComplete = new Promise((resolve) => {
         (async () => {
           try {

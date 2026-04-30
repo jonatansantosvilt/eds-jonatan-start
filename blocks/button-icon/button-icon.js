@@ -1,17 +1,26 @@
 export default function decorate(block) {
-  const [linkRow, , , , iconRow, positionRow] = block.children;
+  const [linkRow, , , typeRow, iconLeftRow, iconRightRow] = block.children;
 
   const link = linkRow?.querySelector('a');
-  const icon = iconRow?.querySelector('img, svg');
-  const position = positionRow?.textContent?.trim() || 'left';
+  const type = typeRow?.textContent?.trim().toLowerCase();
 
-  if (link && icon) {
-    icon.classList.add('button-icon-icon', `button-icon-icon--${position}`);
+  const iconLeft = iconLeftRow?.querySelector('img, svg');
+  const iconRight = iconRightRow?.querySelector('img, svg');
 
-    if (position === 'left') {
-      link.prepend(icon);
-    } else {
-      link.append(icon);
+  if (link) {
+    link.classList.add('button-icon');
+    if (type) {
+      link.classList.add(type);
+    }
+
+    if (iconLeft) {
+      iconLeft.classList.add('button-icon-icon', 'button-icon-icon--left');
+      link.prepend(iconLeft);
+    }
+
+    if (iconRight) {
+      iconRight.classList.add('button-icon-icon', 'button-icon-icon--right');
+      link.append(iconRight);
     }
   }
 }
