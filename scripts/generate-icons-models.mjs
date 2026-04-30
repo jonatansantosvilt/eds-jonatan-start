@@ -1,28 +1,25 @@
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 
 const dirname = path.dirname(fileURLToPath(import.meta.url));
-const ICONS_DIR = path.resolve(dirname, '../icons');
+const ICONS_DIR = path.resolve(dirname, "../icons");
 
-const BUTTON_ICON_MODEL_PATH = path.resolve(
-  dirname,
-  '../blocks/button/_button.json',
-);
+const BUTTON_ICON_MODEL_PATH = path.resolve(dirname, "../models/_button.json");
 
 function getIconOptions() {
   const files = fs.readdirSync(ICONS_DIR);
-  const options = [{ name: 'None', value: '' }];
+  const options = [{ name: "None", value: "" }];
 
   files
-    .filter((f) => f.endsWith('.svg'))
+    .filter((f) => f.endsWith(".svg"))
     .sort()
     .forEach((f) => {
-      const value = f.replace('.svg', '');
+      const value = f.replace(".svg", "");
       const name = value
-        .split('-')
+        .split("-")
         .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-        .join(' ');
+        .join(" ");
       options.push({ name, value });
     });
 
@@ -31,18 +28,18 @@ function getIconOptions() {
 
 function generateIconsModels() {
   const blockJson = JSON.parse(
-    fs.readFileSync(BUTTON_ICON_MODEL_PATH, 'utf-8'),
+    fs.readFileSync(BUTTON_ICON_MODEL_PATH, "utf-8"),
   );
   const iconOptions = getIconOptions();
 
-  const buttonIconModel = blockJson.models?.find((m) => m.id === 'button');
+  const buttonIconModel = blockJson.models?.find((m) => m.id === "button");
 
   if (!buttonIconModel) {
-    process.stderr.write('Model button not found in _button.json\n');
+    process.stderr.write("Model button not found in _button.json\n");
     process.exit(1);
   }
 
-  ['icon'].forEach((fieldName) => {
+  ["icon"].forEach((fieldName) => {
     const field = buttonIconModel.fields.find((f) => f.name === fieldName);
     if (field) field.options = iconOptions;
   });

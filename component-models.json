@@ -120,68 +120,6 @@
     ]
   },
   {
-    "id": "button",
-    "fields": [
-      {
-        "component": "text",
-        "name": "linkText",
-        "label": "Text",
-        "value": "Click Here"
-      },
-      {
-        "component": "aem-content",
-        "name": "link",
-        "label": "Link"
-      },
-      {
-        "component": "select",
-        "name": "linkType",
-        "label": "Style Variant",
-        "options": [
-          {
-            "name": "Primary",
-            "value": "primary"
-          },
-          {
-            "name": "Secondary",
-            "value": "secondary"
-          },
-          {
-            "name": "Gradient",
-            "value": "gradient"
-          }
-        ]
-      },
-      {
-        "component": "select",
-        "name": "icon",
-        "label": "Icon",
-        "options": [
-          {
-            "name": "None",
-            "value": ""
-          },
-          {
-            "name": "Arrow Right",
-            "value": "arrow-right"
-          },
-          {
-            "name": "Book Open",
-            "value": "book-open"
-          },
-          {
-            "name": "Code Bracket",
-            "value": "code-bracket"
-          },
-          {
-            "name": "Search",
-            "value": "search"
-          }
-        ]
-      }
-    ]
-  },
-  {
     "id": "card",
     "fields": [
       {
