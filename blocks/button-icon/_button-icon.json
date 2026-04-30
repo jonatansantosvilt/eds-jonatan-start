@@ -39,24 +39,22 @@
           "name": "linkType",
           "label": "Type",
           "options": [
-            { "name": "default", "value": "" },
-            { "name": "primary", "value": "primary" },
-            { "name": "secondary", "value": "secondary" }
+            { "name": "Default", "value": "" },
+            { "name": "Primary", "value": "primary" },
+            { "name": "Secondary", "value": "secondary" }
           ]
-        },
-        {
-          "component": "aem-content",
-          "name": "icon",
-          "label": "Icon"
         },
         {
           "component": "select",
-          "name": "iconPosition",
-          "label": "Icon Position",
-          "options": [
-            { "name": "Left", "value": "left" },
-            { "name": "Right", "value": "right" }
-          ]
+          "name": "iconLeft",
+          "label": "Icon Left",
+          "options": []
+        },
+        {
+          "component": "select",
+          "name": "iconRight",
+          "label": "Icon Right",
+          "options": []
         }
       ]
     }

@@ -182,36 +182,70 @@
         "label": "Type",
         "options": [
           {
-            "name": "default",
+            "name": "Default",
             "value": ""
           },
           {
-            "name": "primary",
+            "name": "Primary",
             "value": "primary"
           },
           {
-            "name": "secondary",
+            "name": "Secondary",
             "value": "secondary"
           }
         ]
       },
       {
-        "component": "aem-content",
-        "name": "icon",
-        "label": "Icon"
+        "component": "select",
+        "name": "iconLeft",
+        "label": "Icon Left",
+        "options": [
+          {
+            "name": "None",
+            "value": ""
+          },
+          {
+            "name": "Arrow Right",
+            "value": "arrow-right"
+          },
+          {
+            "name": "Book Open",
+            "value": "book-open"
+          },
+          {
+            "name": "Code Bracket",
+            "value": "code-bracket"
+          },
+          {
+            "name": "Search",
+            "value": "search"
+          }
+        ]
       },
       {
         "component": "select",
-        "name": "iconPosition",
-        "label": "Icon Position",
+        "name": "iconRight",
+        "label": "Icon Right",
         "options": [
           {
-            "name": "Left",
-            "value": "left"
+            "name": "None",
+            "value": ""
           },
           {
-            "name": "Right",
-            "value": "right"
+            "name": "Arrow Right",
+            "value": "arrow-right"
+          },
+          {
+            "name": "Book Open",
+            "value": "book-open"
+          },
+          {
+            "name": "Code Bracket",
+            "value": "code-bracket"
+          },
+          {
+            "name": "Search",
+            "value": "search"
           }
         ]
       }
