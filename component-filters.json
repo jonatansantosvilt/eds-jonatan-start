@@ -11,13 +11,18 @@
       "text",
       "image",
       "button",
-      "button-icon",
       "title",
       "hero",
       "cards",
       "columns",
       "fragment",
       "banner"
+    ]
+  },
+  {
+    "id": "button-only",
+    "components": [
+      "button"
     ]
   },
   {
@@ -38,7 +43,6 @@
       "text",
       "image",
       "button",
-      "button-icon",
       "title"
     ]
   }

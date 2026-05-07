@@ -31,9 +31,20 @@
           "name": "text_subheadline",
           "label": "Subheadline",
           "valueType": "string"
+        },
+        {
+          "component": "component-list",
+          "name": "buttons",
+          "label": "Buttons",
+          "filter": "button-only"
         }
       ]
     }
   ],
-  "filters": []
+  "filters": [
+    {
+      "id": "button-only",
+      "components": ["button"]
+    }
+  ]
 }

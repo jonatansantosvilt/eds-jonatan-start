@@ -43,7 +43,9 @@
             {
               "name": "Secondary",
               "value": "secondary"
-            }
+            },
+            { "name": "Outline", "value": "outline" },
+            { "name": "Ghost", "value": "ghost" }
           ]
         }
       ]
