@@ -116,11 +116,48 @@
         "name": "text_subheadline",
         "label": "Subheadline",
         "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "button-link",
+    "fields": [
+      {
+        "name": "link",
+        "component": "aem-content",
+        "label": "URL",
+        "value": "#",
+        "required": true
       },
       {
-        "component": "button",
-        "name": "button",
-        "label": "Button"
+        "name": "linkText",
+        "component": "text",
+        "label": "Texto",
+        "value": "Link"
+      },
+      {
+        "name": "linkTitle",
+        "component": "text",
+        "label": "Título"
+      },
+      {
+        "name": "classes",
+        "component": "select",
+        "label": "Variação",
+        "options": [
+          {
+            "name": "Nenhuma",
+            "value": ""
+          },
+          {
+            "name": "Primária",
+            "value": "primary"
+          },
+          {
+            "name": "Secundária",
+            "value": "secondary"
+          }
+        ]
       }
     ]
   },

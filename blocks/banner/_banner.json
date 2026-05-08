@@ -31,11 +31,6 @@
           "name": "text_subheadline",
           "label": "Subheadline",
           "valueType": "string"
-        },
-        {
-          "component": "button",
-          "name": "button",
-          "label": "Button"
         }
       ]
     }
