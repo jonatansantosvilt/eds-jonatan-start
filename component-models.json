@@ -118,10 +118,9 @@
         "valueType": "string"
       },
       {
-        "component": "component-list",
-        "name": "buttons",
-        "label": "Buttons",
-        "filter": "button-only"
+        "component": "button",
+        "name": "button",
+        "label": "Button"
       }
     ]
   },

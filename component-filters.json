@@ -20,12 +20,6 @@
     ]
   },
   {
-    "id": "button-only",
-    "components": [
-      "button"
-    ]
-  },
-  {
     "id": "cards",
     "components": [
       "card"

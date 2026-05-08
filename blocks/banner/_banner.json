@@ -33,18 +33,12 @@
           "valueType": "string"
         },
         {
-          "component": "component-list",
-          "name": "buttons",
-          "label": "Buttons",
-          "filter": "button-only"
+          "component": "button",
+          "name": "button",
+          "label": "Button"
         }
       ]
     }
   ],
-  "filters": [
-    {
-      "id": "button-only",
-      "components": ["button"]
-    }
-  ]
+  "filters": []
 }
