@@ -1,0 +1,43 @@
+.button-link-group {
+    display: inline-flex;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.button-link-group a.button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    font-size: 1.25rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+    white-space: nowrap;
+}
+
+.button-link-group a.button:hover {
+    opacity: 0.88;
+    transform: translateY(-1px);
+}
+
+.button-link-group .button-link.primary a.button {
+    background: linear-gradient(to right, #2dd4bf, #a855f7);
+    color: #0a0a0a;
+    border: none;
+}
+
+.button-link-group .button-link.secondary a.button {
+    background: #111318;
+    color: #e2e8f0;
+    border: 1px solid #2d3240;
+}
+
+.button-link-group .button-link.secondary a.button:hover {
+    border-color: #4a5280;
+    background: #1a1e2e;
+}

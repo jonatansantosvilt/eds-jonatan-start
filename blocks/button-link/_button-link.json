@@ -58,6 +58,25 @@
               "value": "secondary"
             }
           ]
+        },
+        {
+          "component": "select",
+          "name": "icon",
+          "label": "Ícone",
+          "options": [
+            {
+              "name": "Nenhum",
+              "value": ""
+            },
+            {
+              "name": "Arrow Right",
+              "value": "arrow-right"
+            },
+            {
+              "name": "Book Open",
+              "value": "book-open"
+            }
+          ]
         }
       ]
     }
