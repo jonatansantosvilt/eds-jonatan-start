@@ -36,12 +36,16 @@
       "id": "card",
       "fields": [
         {
-          "component": "text",
+          "component": "select",
           "valueType": "string",
           "name": "label",
-          "label": "Eyebrow / Label",
+          "label": "Application",
           "value": "",
-          "description": "Rótulo acima do título"
+          "description": "Aplicação relacionada ao card",
+          "options": [
+            { "name": "Backend", "value": "backend" },
+            { "name": "Frontend", "value": "frontend" }
+          ]
         },
         {
           "component": "richtext",
