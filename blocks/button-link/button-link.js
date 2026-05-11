@@ -61,6 +61,21 @@ function scheduleGrouping(block) {
   });
 }
 
+// export async function loadSVG(
+//   path,
+//   url = `${window.hlx.codeBasePath}/${path}.svg`,
+// ) {
+//   try {
+//     const response = await fetch(url);
+//     if (!response.ok) throw new Error(`HTTP status ${response.status}`);
+//     return new DOMParser()
+//       .parseFromString(await response.text(), 'image/svg+xml')
+//       .querySelector('svg');
+//   } catch (error) {
+//     console.error(`Error loading SVG ${url}:`, error);
+//   }
+// }
+
 function decorateAnchor(block) {
   const anchor = block.querySelector('a');
   if (!anchor) return;
@@ -70,7 +85,15 @@ function decorateAnchor(block) {
   block.replaceChildren(anchor);
 }
 
+function decorateIcon(block) {
+  const [, iconElement] = block.children;
+  const icon = iconElement?.querySelector('p').innerText.trim();
+  if (!icon) return;
+  block.classList.add('button-link--icon');
+}
+
 export default function decorate(block) {
   decorateAnchor(block);
+  decorateIcon(block);
   scheduleGrouping(block);
 }
