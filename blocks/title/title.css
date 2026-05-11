@@ -1,0 +1,74 @@
+.title-container {
+    background-color: #0b0b0f;
+    padding: clamp(3rem, 8vw, 6rem) 1.5rem;
+    text-align: center;
+    color: #fff;
+}
+
+.title-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.title.block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    opacity: 0;
+    transform: translateY(12px);
+    transition:
+        opacity 0.6s ease-out,
+        transform 0.6s ease-out;
+}
+
+.title.block.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.title.block .title-heading h1 {
+    margin: 0;
+    color: #fff;
+    font-size: clamp(2rem, 6vw, 7rem);
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.title-gradient {
+    background: linear-gradient(90deg, #5eead4 0%, #60a5fa 45%, #a78bfa 100%);
+    background-size: 200% 100%;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    animation: gradient-shift 8s ease-in-out infinite;
+    will-change: background-position;
+}
+
+@keyframes gradient-shift {
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.title.block .title-description p {
+    margin: 0.5rem auto 0;
+    max-width: 640px;
+    color: #8b8d98;
+    font-size: clamp(1rem, 1.7rem, 8rem);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .title-gradient,
+    .title.block {
+        animation: none;
+        transition: none;
+        opacity: 1;
+        transform: none;
+    }
+}
