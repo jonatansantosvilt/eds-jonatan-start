@@ -1,4 +1,4 @@
-.cards-wrapper {
+.apps-section .cards-wrapper {
     --card-bg: #111116;
     --card-border: rgb(255 255 255 / 7%);
     --card-radius: 18px;
@@ -13,7 +13,7 @@
     --font-mono: "IBM Plex Mono", "Fira Code", monospace;
 }
 
-.cards-wrapper .cards {
+.apps-section .cards-wrapper .cards {
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -22,7 +22,7 @@
     margin-top: 1.5rem;
 }
 
-.cards-wrapper .card {
+.apps-section .cards-wrapper .card {
     position: relative;
     background: var(--card-bg);
     border: 1px solid var(--card-border);
@@ -40,11 +40,11 @@
     cursor: pointer;
 }
 
-.cards-wrapper .card:hover {
+.apps-section .cards-wrapper .card:hover {
     transform: translateY(-3px);
 }
 
-.cards-wrapper .card::before {
+.apps-section .cards-wrapper .card::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -52,7 +52,7 @@
     border-radius: inherit;
 }
 
-.cards-wrapper .card.teal::before {
+.apps-section .cards-wrapper .card.teal::before {
     background: radial-gradient(
         ellipse 70% 55% at 85% 0%,
         var(--teal-glow) 0%,
@@ -60,13 +60,13 @@
     );
 }
 
-.cards-wrapper .card.teal:hover {
+.apps-section .cards-wrapper .card.teal:hover {
     box-shadow:
         0 2px 4px rgb(0 0 0 / 40%),
         0 8px 32px rgb(45 212 191 / 12%);
 }
 
-.cards-wrapper .card.purple::before {
+.apps-section .cards-wrapper .card.purple::before {
     background: radial-gradient(
         ellipse 70% 55% at 85% 0%,
         var(--purple-glow) 0%,
@@ -74,13 +74,13 @@
     );
 }
 
-.cards-wrapper .card.purple:hover {
+.apps-section .cards-wrapper .card.purple:hover {
     box-shadow:
         0 2px 4px rgb(0 0 0 / 40%),
         0 8px 32px rgb(167 139 250 / 12%);
 }
 
-.cards-wrapper .card-header {
+.apps-section .cards-wrapper .card-header {
     margin-bottom: 1.75rem;
     display: flex;
     flex-direction: column;
@@ -89,14 +89,14 @@
     gap: 0;
 }
 
-.cards-wrapper .card-label p {
+.apps-section .cards-wrapper .card-label p {
     font-family: var(--font-mono);
     font-size: 1.25rem;
     color: var(--text-label);
     margin: 0;
 }
 
-.cards-wrapper .card-title p {
+.apps-section .cards-wrapper .card-title p {
     font-family: var(--font-mono);
     font-size: 1.75rem;
     font-weight: 700;
@@ -104,7 +104,7 @@
     margin: 0;
 }
 
-.cards-wrapper .card-items ul {
+.apps-section .cards-wrapper .card-items ul {
     list-style: none;
     padding: 0;
     display: flex;
@@ -114,7 +114,7 @@
     text-align: left;
 }
 
-.cards-wrapper .card-items li {
+.apps-section .cards-wrapper .card-items li {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -125,7 +125,7 @@
     line-height: 1.5;
 }
 
-.cards-wrapper .card-items li::before {
+.apps-section .cards-wrapper .card-items li::before {
     content: "";
     position: absolute;
     left: 0;
@@ -135,19 +135,23 @@
     border-radius: 50%;
 }
 
-.cards-wrapper .card.teal .card-items li::before {
+.apps-section .cards-wrapper .card.teal .card-items li::before {
     background: var(--teal);
 }
 
-.cards-wrapper .card.purple .card-items li::before {
+.apps-section .cards-wrapper .card.purple .card-items li::before {
     background: var(--purple);
 }
 
-.cards-wrapper .card-item-title {
+.apps-section .cards-wrapper .card-item-title {
     display: block;
     font-family: var(--font-mono);
     font-size: 1.25rem;
     font-weight: 600;
     color: var(--text-title);
     letter-spacing: 0.01em;
+}
+
+.module-section .cards-wrapper .card-item-title {
+    font-size: 1.1rem;
 }

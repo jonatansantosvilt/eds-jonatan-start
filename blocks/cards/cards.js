@@ -25,7 +25,7 @@ function createItemsList(items) {
   return fragment;
 }
 
-export function decorateCardItems(cardItems) {
+function decorateCardItems(cardItems) {
   const pContent = cardItems.querySelector('p');
   if (!pContent) return;
 
@@ -35,7 +35,7 @@ export function decorateCardItems(cardItems) {
   cardItems.replaceChildren(listFragment);
 }
 
-function decorateAppsModuleCard(card) {
+function decorateCard(card) {
   const [label, title, theme, itemsContainer] = card.children;
   const themeName = theme?.textContent?.trim() || 'default';
 
@@ -54,8 +54,6 @@ function decorateAppsModuleCard(card) {
 }
 
 export default function decorate(block) {
-  const decorateCard = decorateAppsModuleCard;
-
   const cards = [...block.children];
   cards.forEach(decorateCard);
 }
