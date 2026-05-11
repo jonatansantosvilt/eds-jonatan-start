@@ -183,9 +183,8 @@
       {
         "component": "richtext",
         "valueType": "string",
-        "name": "card-item",
-        "label": "Card item",
-        "multi": true
+        "name": "card-items",
+        "label": "Card items"
       }
     ]
   },
