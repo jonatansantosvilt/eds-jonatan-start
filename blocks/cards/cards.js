@@ -1,23 +1,58 @@
-import { createOptimizedPicture } from '../../scripts/aem.js';
-import { moveInstrumentation } from '../../scripts/scripts.js';
+import decorateCard from '../card/card.js';
 
+const AUTO_THEMES = ['teal', 'purple'];
+
+function supportsIntersectionObserver() {
+  return 'IntersectionObserver' in window;
+}
+
+function createVisibilityObserver(onVisible) {
+  return new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          onVisible(entry);
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15, rootMargin: '0px 0px -40px 0px' },
+  );
+}
+
+function revealOnView(el) {
+  if (!supportsIntersectionObserver()) {
+    el.classList.add('is-visible');
+    return;
+  }
+  const observer = createVisibilityObserver((entry) => {
+    entry.target.classList.add('is-visible');
+  });
+  observer.observe(el);
+}
+
+function pickAutoTheme(index) {
+  return AUTO_THEMES[index % AUTO_THEMES.length];
+}
+
+function hasExplicitTheme(card) {
+  return Array.from(card.classList).some((c) => c.startsWith('card-theme-'));
+}
+
+function applyAutoThemeIfMissing(card, index) {
+  if (hasExplicitTheme(card)) return;
+  card.classList.add(`card-theme-${pickAutoTheme(index)}`);
+}
+
+/**
+ * @param {Element} block
+ */
 export default function decorate(block) {
-  /* change to ul, li */
-  const ul = document.createElement('ul');
-  [...block.children].forEach((row) => {
-    const li = document.createElement('li');
-    moveInstrumentation(row, li);
-    while (row.firstElementChild) li.append(row.firstElementChild);
-    [...li.children].forEach((div) => {
-      if (div.children.length === 1 && div.querySelector('picture')) div.className = 'cards-card-image';
-      else div.className = 'cards-card-body';
-    });
-    ul.append(li);
+  Array.from(block.children).forEach((card, index) => {
+    card.classList.add('card');
+    decorateCard(card);
+    applyAutoThemeIfMissing(card, index);
   });
-  ul.querySelectorAll('picture > img').forEach((img) => {
-    const optimizedPic = createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]);
-    moveInstrumentation(img, optimizedPic.querySelector('img'));
-    img.closest('picture').replaceWith(optimizedPic);
-  });
-  block.replaceChildren(ul);
+
+  revealOnView(block);
 }
