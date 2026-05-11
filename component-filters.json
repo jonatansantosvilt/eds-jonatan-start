@@ -23,7 +23,8 @@
   {
     "id": "cards",
     "components": [
-      "card"
+      "card",
+      "card-list"
     ]
   },
   {

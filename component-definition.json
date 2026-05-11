@@ -87,6 +87,21 @@
           }
         },
         {
+          "title": "Card List",
+          "id": "card-list",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/block/v1/block/item",
+                "template": {
+                  "name": "Card List",
+                  "model": "card-list"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Cards",
           "id": "cards",
           "plugins": {

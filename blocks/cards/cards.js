@@ -35,7 +35,7 @@ export function decorateCardItems(cardItems) {
   cardItems.replaceChildren(listFragment);
 }
 
-function decorateCard(card) {
+function decorateAppsModuleCard(card) {
   const [label, title, theme, itemsContainer] = card.children;
   const themeName = theme?.textContent?.trim() || 'default';
 
@@ -54,6 +54,8 @@ function decorateCard(card) {
 }
 
 export default function decorate(block) {
+  const decorateCard = decorateAppsModuleCard;
+
   const cards = [...block.children];
   cards.forEach(decorateCard);
 }

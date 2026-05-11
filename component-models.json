@@ -140,6 +140,55 @@
     ]
   },
   {
+    "id": "card-list",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "label",
+        "label": "Eyebrow / Label",
+        "value": "",
+        "description": "Rótulo acima do título, ex.: apps/backend"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "title",
+        "label": "Title",
+        "value": "",
+        "description": "Título principal, ex.: Backend"
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "theme",
+        "label": "Accent theme",
+        "value": "",
+        "description": "Cor de destaque do card",
+        "options": [
+          {
+            "name": "Auto (by position)",
+            "value": ""
+          },
+          {
+            "name": "Teal",
+            "value": "teal"
+          },
+          {
+            "name": "Purple",
+            "value": "purple"
+          }
+        ]
+      },
+      {
+        "component": "richtext",
+        "valueType": "string",
+        "name": "card-items",
+        "label": "Card items"
+      }
+    ]
+  },
+  {
     "id": "card",
     "fields": [
       {
