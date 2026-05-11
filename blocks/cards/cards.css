@@ -1,7 +1,153 @@
+.cards-wrapper {
+    --card-bg: #111116;
+    --card-border: rgb(255 255 255 / 7%);
+    --card-radius: 18px;
+    --text-title: #fff;
+    --text-label: rgb(255 255 255 / 45%);
+    --text-body: rgb(255 255 255 / 55%);
+    --teal: #2dd4bf;
+    --teal-glow: rgb(45 212 191 / 18%);
+    --purple: #a78bfa;
+    --purple-glow: rgb(167 139 250 / 18%);
+    --font-ui: "IBM Plex Sans", "Segoe UI", sans-serif;
+    --font-mono: "IBM Plex Mono", "Fira Code", monospace;
+}
+
 .cards-wrapper .cards {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex-wrap: wrap;
     gap: 20px;
+    margin-top: 1.5rem;
+}
+
+.cards-wrapper .card {
+    position: relative;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--card-radius);
+    padding: 2rem 2rem 2.25rem;
+    width: 400px;
+    height: 600px;
+    overflow: hidden;
+    box-shadow:
+        0 2px 4px rgb(0 0 0 / 40%),
+        0 8px 24px rgb(0 0 0 / 35%);
+    transition:
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+    cursor: pointer;
+}
+
+.cards-wrapper .card:hover {
+    transform: translateY(-3px);
+}
+
+.cards-wrapper .card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+}
+
+.cards-wrapper .card.teal::before {
+    background: radial-gradient(
+        ellipse 70% 55% at 85% 0%,
+        var(--teal-glow) 0%,
+        transparent 70%
+    );
+}
+
+.cards-wrapper .card.teal:hover {
+    box-shadow:
+        0 2px 4px rgb(0 0 0 / 40%),
+        0 8px 32px rgb(45 212 191 / 12%);
+}
+
+.cards-wrapper .card.purple::before {
+    background: radial-gradient(
+        ellipse 70% 55% at 85% 0%,
+        var(--purple-glow) 0%,
+        transparent 70%
+    );
+}
+
+.cards-wrapper .card.purple:hover {
+    box-shadow:
+        0 2px 4px rgb(0 0 0 / 40%),
+        0 8px 32px rgb(167 139 250 / 12%);
+}
+
+.cards-wrapper .card-header {
+    margin-bottom: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0;
+}
+
+.cards-wrapper .card-label p {
+    font-family: var(--font-mono);
+    font-size: 1.25rem;
+    color: var(--text-label);
+    margin: 0;
+}
+
+.cards-wrapper .card-title p {
+    font-family: var(--font-mono);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-title);
+    margin: 0;
+}
+
+.cards-wrapper .card-items ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.1rem;
+    text-align: left;
+}
+
+.cards-wrapper .card-items li {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding-left: 1.1rem;
+    font-size: 1rem;
+    color: var(--text-body);
+    line-height: 1.5;
+}
+
+.cards-wrapper .card-items li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.45em;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+}
+
+.cards-wrapper .card.teal .card-items li::before {
+    background: var(--teal);
+}
+
+.cards-wrapper .card.purple .card-items li::before {
+    background: var(--purple);
+}
+
+.cards-wrapper .card-item-title {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-title);
+    letter-spacing: 0.01em;
 }

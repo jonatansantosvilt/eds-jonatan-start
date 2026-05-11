@@ -17,7 +17,7 @@ function createItemsList(items) {
 
   items.forEach((itemContent) => {
     const li = createElement('li');
-    li.innerHTML = itemContent;
+    li.innerHTML = itemContent.replace(/<br\s*\/?>/gi, '');
     ul.appendChild(li);
   });
 
