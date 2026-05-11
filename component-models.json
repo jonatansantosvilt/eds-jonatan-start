@@ -143,14 +143,6 @@
     "id": "card",
     "fields": [
       {
-        "component": "reference",
-        "valueType": "string",
-        "name": "icon",
-        "label": "Icon",
-        "multi": false,
-        "description": "Ícone exibido no canto superior esquerdo do card"
-      },
-      {
         "component": "text",
         "valueType": "string",
         "name": "label",
@@ -187,27 +179,13 @@
             "value": "purple"
           }
         ]
-      }
-    ]
-  },
-  {
-    "id": "card-item",
-    "fields": [
-      {
-        "component": "text",
-        "valueType": "string",
-        "name": "title",
-        "label": "Item title",
-        "value": "",
-        "description": "Ex.: NestJS v11"
       },
       {
-        "component": "text",
+        "component": "richtext",
         "valueType": "string",
-        "name": "description",
-        "label": "Item description",
-        "value": "",
-        "description": "Ex.: Modular controllers, providers and DI"
+        "name": "card-item",
+        "label": "Card item",
+        "multi": true
       }
     ]
   },
