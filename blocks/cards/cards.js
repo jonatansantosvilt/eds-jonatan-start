@@ -35,7 +35,7 @@ function decorateCardItems(cardItems) {
   cardItems.replaceChildren(listFragment);
 }
 
-function decorateCard(card) {
+function decorateAppsCard(card) {
   const [label, title, theme, itemsContainer] = card.children;
   const themeName = theme?.textContent?.trim() || 'default';
 
@@ -53,7 +53,58 @@ function decorateCard(card) {
   decorateCardItems(itemsContainer);
 }
 
+const MODULE_THEME_BY_LABEL = {
+  backend: 'teal',
+  frontend: 'purple',
+};
+
+function buildTags(rawHtml) {
+  const wrapper = createElement('div', 'card-tags');
+  const text = rawHtml.replace(/<[^>]+>/g, ' ');
+  const tags = text.match(/#[\w-]+/g) || [];
+
+  tags.forEach((tag) => {
+    const span = createElement('span', 'card-tag');
+    span.textContent = tag;
+    wrapper.appendChild(span);
+  });
+
+  return wrapper;
+}
+
+function decorateModuleCard(card) {
+  const [labelEl, titleEl, descriptionEl, tagsEl] = card.children;
+
+  const labelText = labelEl?.textContent?.trim().toLowerCase() || '';
+
+  if (!labelText) {
+    card.style.display = 'none';
+    return;
+  }
+
+  const theme = MODULE_THEME_BY_LABEL[labelText] || 'default';
+  card.classList.add('card', theme);
+
+  const label = createElement('span', 'card-label');
+  label.textContent = labelText;
+
+  const header = createElement('div', 'card-header');
+  header.appendChild(label);
+
+  titleEl.className = 'card-title';
+  descriptionEl.className = 'card-description';
+
+  const tagsWrapper = buildTags(tagsEl?.innerHTML || '');
+
+  const footer = createElement('div', 'card-footer');
+  footer.appendChild(tagsWrapper);
+
+  card.replaceChildren(header, titleEl, descriptionEl, footer);
+}
+
 export default function decorate(block) {
-  const cards = [...block.children];
-  cards.forEach(decorateCard);
+  const isModuleSection = !!block.closest('.module-section');
+  const decorator = isModuleSection ? decorateModuleCard : decorateAppsCard;
+
+  [...block.children].forEach(decorator);
 }

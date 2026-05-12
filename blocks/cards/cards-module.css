@@ -1,0 +1,183 @@
+.module-section .cards-wrapper {
+    --card-bg: #111116;
+    --card-border: rgb(255 255 255 / 7%);
+    --card-radius: 18px;
+    --text-title: #fff;
+    --text-label: rgb(255 255 255 / 55%);
+    --text-body: rgb(255 255 255 / 55%);
+    --text-meta: rgb(255 255 255 / 40%);
+    --tag-bg: rgb(255 255 255 / 6%);
+    --tag-text: rgb(255 255 255 / 70%);
+    --teal: #2dd4bf;
+    --purple: #a78bfa;
+    --green: #34d399;
+    --font-ui: "IBM Plex Sans", "Segoe UI", sans-serif;
+    --font-mono: "IBM Plex Mono", "Fira Code", monospace;
+}
+
+.module-section .cards-wrapper .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: stretch;
+    gap: 20px;
+    margin-top: 1.5rem;
+    width: 100%;
+    max-width: 1400px;
+    margin-inline: auto;
+}
+
+.module-section .cards-wrapper .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: var(--card-radius);
+    padding: 1.75rem;
+    min-height: 280px;
+    font-family: var(--font-ui);
+    box-shadow:
+        0 2px 4px rgb(0 0 0 / 40%),
+        0 8px 24px rgb(0 0 0 / 35%);
+    transition:
+        box-shadow 0.3s ease,
+        transform 0.3s ease,
+        border-color 0.3s ease;
+    cursor: pointer;
+    text-align: left;
+}
+
+.module-section .cards-wrapper .card:hover {
+    transform: translateY(-3px);
+    border-color: rgb(255 255 255 / 12%);
+}
+
+.module-section .cards-wrapper .card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.1rem;
+}
+
+.module-section .cards-wrapper .card-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-label);
+}
+
+.module-section .cards-wrapper .card-label::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--text-label);
+}
+
+.module-section .cards-wrapper .card.teal .card-label::before {
+    background: var(--teal);
+    box-shadow: 0 0 8px rgb(45 212 191 / 60%);
+}
+
+.module-section .cards-wrapper .card.purple .card-label::before {
+    background: var(--purple);
+    box-shadow: 0 0 8px rgb(167 139 250 / 60%);
+}
+
+.module-section .cards-wrapper .card.green .card-label::before {
+    background: var(--green);
+    box-shadow: 0 0 8px rgb(52 211 153 / 60%);
+}
+
+.module-section .cards-wrapper .card-arrow {
+    color: var(--text-label);
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease;
+}
+
+.module-section .cards-wrapper .card:hover .card-arrow {
+    transform: translate(2px, -2px);
+    color: var(--text-title);
+}
+
+.module-section .cards-wrapper .card-title {
+    margin: 0 0 0.85rem;
+}
+
+.module-section .cards-wrapper .card-title > * {
+    margin: 0;
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--text-title);
+}
+
+.module-section .cards-wrapper .card-title strong {
+    font-weight: inherit;
+}
+
+.module-section .cards-wrapper .card-description {
+    flex: 1;
+    margin: 0 0 1.5rem;
+}
+
+.module-section .cards-wrapper .card-description p {
+    margin: 0;
+    font-size: 1.25rem;
+    line-height: 1.55;
+    color: var(--text-body);
+}
+
+.module-section .cards-wrapper .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.module-section .cards-wrapper .card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    flex: 1;
+}
+
+.module-section .cards-wrapper .card-tag {
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    line-height: 1;
+    color: var(--tag-text);
+    background: var(--tag-bg);
+    padding: 0.35rem 0.65rem;
+    border-radius: 8px;
+    white-space: nowrap;
+}
+
+.module-section .cards-wrapper .card-meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-shrink: 0;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text-meta);
+    white-space: nowrap;
+}
+
+@media (width <= 1024px) {
+    .module-section .cards-wrapper .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (width <= 640px) {
+    .module-section .cards-wrapper .cards {
+        grid-template-columns: 1fr;
+    }
+}
